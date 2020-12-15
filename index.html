@@ -6,46 +6,25 @@
     <title>Github Visualiser</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <h1> Hello World!</h1>
-    
+<body>      
+      <div id="login-error-msg-holder">
+        <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or token</span></p>
+      </div>
 
-    <main id="main-holder">
+      <div class="login">
         <h1 id="login-header">Search</h1>
-        
-        <div id="login-error-msg-holder">
-          <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
-        </div>
-        
-        <form id="login-form">
-          <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
-          <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Authorisation">
-          <input type="submit" value="Login" id="login-form-submit">
-        </form>
-      
-      </main>
+          <form id="login-form" >  
+             <!-- method="post" this removes the whole page for some reason -->
+              <!-- <input type="text" name="u" placeholder="Username" required="required" /> -->
+              <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+              <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Authorisation">
 
-
-
-    <div>
-        <div class="mb-2 mt-2 col-md-12">
-            GitHub Username: <input id="username" type="text" placeholder="username" />
-            Authorisation: <input id="authorisation" type="text" placeholder="optional" />
-            <button onclick="searchUser()">Submit </button>
-        </div>
-    </div>
-    <div id = 'divResult'></div>
-    <p id="name"></p>
-    <img class="mb-4 img-fluid" id="img" src=''>
-    <p id="bio"></p>
-    <p id="hireable"></p>
-    <p id="created_at"></p>
-    <p id="followers"></p>
-    <p id="following"></p>
-    <p id="location"></p>
-    <p id="public_repos"></p>
-
-    
+              <!-- <input type="password" name="p" placeholder="Password" required="required" /> -->
+              <button onclick="searchUser()"  class="btn btn-primary btn-block btn-large">Confirm</button> 
+              <!-- type="submit" -->
+          </form>
+      </div>
+  
     <script src = app.js></script>
 </body>
 </html>
