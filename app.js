@@ -55,7 +55,7 @@ async function loadRepos(user, token) {
 async function getRequest(user, token) {
     let url = `https://api.github.com/search/repositories?q=user:${user}`;
     const headers = {
-        "Authorization" : `token 1a7fb31adeb0fe519bbf9ac7e14119d19759e9a4`
+        "Authorization" : `token ${token}`
     }
 
     const response = (token == undefined) ? await fetch(url) : await fetch(url, {
