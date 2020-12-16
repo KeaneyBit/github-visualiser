@@ -10,14 +10,26 @@ async function searchUser() {
 
     let info = await loadData(user, authorisation)
 
-    let img = document.getElementById('img');
-    img.src = info.avatar_url;
+    if(info.name != null) {
+        let img = document.getElementById('img');
+        img.src = info.avatar_url;
 
-    // let repoInfo = await loadRepos(user, authorisation)
-    // console.log(repoInfo);
+        let repoPublic = await loadRepos(user, undefined)
+        console.log(repoPublic);
 
-    let newInfo = await getRequest(user, authorisation)
-    console.log(newInfo.authorisation)
+        let name = document.getElementById('name');
+        name.innerHTML = `<b>Name: </b>${info.name}`;
+
+        let login = document.getElementById('login');
+        login.innerHTML = `<b>Login ID: </b>${info.login}`;
+
+        let bio = document.getElementById('bio');
+        bio.innerHTML = `<b>Bio: </b>${info.bio == null ? 'No User Bio' : info.bio}`;
+    }
+    
+
+    let repoPrivate = await getPrivateRepos(user, authorisation)
+    console.log(repoPrivate)
 }
 
 async function httpRequest(url, token) {
@@ -36,6 +48,7 @@ async function loadData(user, token) {
     
     if (user_info.name != null) {
         loginErrorMsg.style.opacity = 0;
+        // html.style.display = "none"
         alert("Sucessful Request");
     } else {
         loginErrorMsg.style.opacity = 1;
@@ -52,7 +65,7 @@ async function loadRepos(user, token) {
 }
 
 
-async function getRequest(user, token) {
+async function getPrivateRepos(user, token) {
     let url = `https://api.github.com/search/repositories?q=user:${user}`;
     const headers = {
         "Authorization" : `token ${token}`
