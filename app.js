@@ -11,6 +11,8 @@ async function searchUser() {
     let info = await loadData(user, authorisation)
 
     if(info.name != null) {
+
+        window.location.replace("https://keaneybit.github.io/github-visualiser/html/loading.html");
         // var log = document.getElementById('daLogin');
         // log.style.opacity = 0; 
 
@@ -21,13 +23,13 @@ async function searchUser() {
         console.log(repoPublic);
 
         let name = document.getElementById('name');
-        name.innerHTML = `<b>Name: </b>${info.name}`;
+        name.innerHTML = `${info.name}`;
 
         let login = document.getElementById('login');
-        login.innerHTML = `<b>Login ID: </b>${info.login}`;
+        login.innerHTML = `${info.login}`;
 
         let bio = document.getElementById('bio');
-        bio.innerHTML = `<b>Bio: </b>${info.bio == null ? 'No User Bio' : info.bio}`;
+        bio.innerHTML = `${info.bio == null ? 'No User Bio' : info.bio}`;
     
         let hireable = document.getElementById('hireable');
         hireable.innerHTML = `<b>Hireable: </b>${(info.hireable != null) ? 'Yes' : 'No'}`;
@@ -47,11 +49,25 @@ async function searchUser() {
         let public_repos = document.getElementById('public_repos');
         public_repos.innerHTML = `<b>Public Repos: </b>${info.public_repos}`;
 
-        location.replace("html/result.html");
+        
+
     }
+    let repoPrivate = await getPrivateRepos(user, authorisation)
+    let private_repos = document.getElementById('private_repos');
+    let total_repos = document.getElementById('total_repos');
+    if(repoPrivate.name != null) {
+        private_repos.innerHTML = `<b>Private Repos: </b>${repoPrivate.total_count - info.public_repos}`;
+        total_repos.innerHTML = `<b>Total Repos: </b>${repoPrivate.total_count}`;
+    } else {
+        private_repos.innerHTML = `<b>Private Repos: Authentication Required</b>`;
+        total_repos.innerHTML = `<b>Total Repos: Authentication Required</b>`;
+    }
+
+
+    
+    
     
 
-    let repoPrivate = await getPrivateRepos(user, authorisation)
     console.log(repoPrivate)
 }
 

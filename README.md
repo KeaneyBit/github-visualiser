@@ -2,7 +2,7 @@
 
 # TL;DR
 
-Simulator: 
+Simulator: https://keaneybit.github.io/github-visualiser/
 
 Video Demo
 
