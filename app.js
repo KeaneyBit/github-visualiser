@@ -12,7 +12,7 @@ async function searchUser() {
 
     if(info.name != null) {
 
-        window.location.replace("https://keaneybit.github.io/github-visualiser/html/result.html");
+        
         // var log = document.getElementById('daLogin');
         // log.style.opacity = 0; 
 
@@ -49,7 +49,7 @@ async function searchUser() {
         let public_repos = document.getElementById('public_repos');
         public_repos.innerHTML = `<b>Public Repos: </b>${info.public_repos}`;
 
-        
+        window.location.replace("html/result.html");
 
     }
     let repoPrivate = await getPrivateRepos(user, authorisation)
