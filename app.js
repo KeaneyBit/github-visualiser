@@ -11,8 +11,6 @@ async function searchUser() {
     let info = await loadData(user, authorisation)
 
     if(info.name != null) {
-
-        window.location.replace("https://keaneybit.github.io/github-visualiser/html/result.html");
         // var log = document.getElementById('daLogin');
         // log.style.opacity = 0; 
 
@@ -23,19 +21,19 @@ async function searchUser() {
         console.log(repoPublic);
 
         let name = document.getElementById('name');
-        name.innerHTML = `${info.name}`;
+        name.innerHTML = `<b>Name: </b>${info.name}`;
 
         let login = document.getElementById('login');
-        login.innerHTML = `${info.login}`;
+        login.innerHTML = `<b>LUsername: </b>${info.login}`;
 
         let bio = document.getElementById('bio');
-        bio.innerHTML = `${info.bio == null ? 'No User Bio' : info.bio}`;
+        bio.innerHTML = `<b>Details: </b>${info.bio == null ? 'No User Details' : info.bio}`;
     
         let hireable = document.getElementById('hireable');
         hireable.innerHTML = `<b>Hireable: </b>${(info.hireable != null) ? 'Yes' : 'No'}`;
     
         let created_at = document.getElementById('created_at');
-        created_at.innerHTML = `<b>Created On: </b>${info.created_at}`;
+        created_at.innerHTML = `<b>Account Creation Date: </b>${info.created_at}`;
     
         let followers = document.getElementById('followers');
         followers.innerHTML = `<b>Followers: </b>${info.followers}`;
@@ -49,26 +47,20 @@ async function searchUser() {
         let public_repos = document.getElementById('public_repos');
         public_repos.innerHTML = `<b>Public Repos: </b>${info.public_repos}`;
 
-        
-
+        //location.replace("html/result.html");
     }
+    
+
     let repoPrivate = await getPrivateRepos(user, authorisation)
     let private_repos = document.getElementById('private_repos');
     let total_repos = document.getElementById('total_repos');
-    if(repoPrivate.name != null) {
+    if(authorisation != undefined) {
         private_repos.innerHTML = `<b>Private Repos: </b>${repoPrivate.total_count - info.public_repos}`;
         total_repos.innerHTML = `<b>Total Repos: </b>${repoPrivate.total_count}`;
     } else {
         private_repos.innerHTML = `<b>Private Repos: Authentication Required</b>`;
         total_repos.innerHTML = `<b>Total Repos: Authentication Required</b>`;
     }
-
-
-    
-    
-    
-
-    console.log(repoPrivate)
 }
 
 async function httpRequest(url, token) {
