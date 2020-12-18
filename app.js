@@ -11,6 +11,9 @@ async function searchUser() {
     let info = await loadData(user, authorisation)
 
     if(info.name != null) {
+        // var log = document.getElementById('daLogin');
+        // log.style.opacity = 0; 
+
         let img = document.getElementById('img');
         img.src = info.avatar_url;
 
@@ -25,6 +28,26 @@ async function searchUser() {
 
         let bio = document.getElementById('bio');
         bio.innerHTML = `<b>Bio: </b>${info.bio == null ? 'No User Bio' : info.bio}`;
+    
+        let hireable = document.getElementById('hireable');
+        hireable.innerHTML = `<b>Hireable: </b>${(info.hireable != null) ? 'Yes' : 'No'}`;
+    
+        let created_at = document.getElementById('created_at');
+        created_at.innerHTML = `<b>Created On: </b>${info.created_at}`;
+    
+        let followers = document.getElementById('followers');
+        followers.innerHTML = `<b>Followers: </b>${info.followers}`;
+    
+        let following = document.getElementById('following');
+        following.innerHTML = `<b>Following: </b>${info.following}`;
+    
+        let location = document.getElementById('location');
+        location.innerHTML = `<b>Location: </b>${info.location}`;
+    
+        let public_repos = document.getElementById('public_repos');
+        public_repos.innerHTML = `<b>Public Repos: </b>${info.public_repos}`;
+
+        location.replace("html/result.html");
     }
     
 
@@ -50,8 +73,10 @@ async function loadData(user, token) {
         loginErrorMsg.style.opacity = 0;
         // html.style.display = "none"
         alert("Sucessful Request");
+        //loadingIconStart();
     } else {
         loginErrorMsg.style.opacity = 1;
+        //loadingIconEnd();
     }
 
     return user_info;
@@ -79,11 +104,15 @@ async function getPrivateRepos(user, token) {
     let data = await response.json();
     return data;
 }
+
+function loadingIconStart() {
+    var grid = document.getElementById('daGrid');
+    grid.style.opacity = 1;  
+}
+
+function loadingIconEnd() {
+    var grid = document.getElementById('daGrid');
+    grid.style.opacity = 0;
     
-
-
-
-
-
-
-
+}
+    
