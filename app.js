@@ -12,7 +12,7 @@ async function searchUser() {
 
     if(info.name != null) {
 
-        window.location.replace("https://keaneybit.github.io/github-visualiser/html/loading.html");
+        window.location.replace("https://keaneybit.github.io/github-visualiser/html/result.html");
         // var log = document.getElementById('daLogin');
         // log.style.opacity = 0; 
 
