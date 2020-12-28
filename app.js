@@ -24,7 +24,7 @@ async function searchUser() {
         name.innerHTML = `<b>Name: </b>${info.name}`;
 
         let login = document.getElementById('login');
-        login.innerHTML = `<b>LUsername: </b>${info.login}`;
+        login.innerHTML = `<b>Username: </b>${info.login}`;
 
         let bio = document.getElementById('bio');
         bio.innerHTML = `<b>Details: </b>${info.bio == null ? 'No User Details' : info.bio}`;
@@ -81,10 +81,10 @@ async function loadData(user, token) {
         loginErrorMsg.style.opacity = 0;
         // html.style.display = "none"
         alert("Sucessful Request");
-        //loadingIconStart();
+        loadingIconStart();
     } else {
         loginErrorMsg.style.opacity = 1;
-        //loadingIconEnd();
+        loadingIconEnd();
     }
 
     return user_info;
@@ -114,13 +114,17 @@ async function getPrivateRepos(user, token) {
 }
 
 function loadingIconStart() {
-    var grid = document.getElementById('daGrid');
+    var grid = document.getElementById('daSidebar');
+    grid.style.opacity = 1;  
+    grid = document.getElementById('daNaive');
     grid.style.opacity = 1;  
 }
 
 function loadingIconEnd() {
-    var grid = document.getElementById('daGrid');
+    var grid = document.getElementById('daSidebar');
     grid.style.opacity = 0;
+    grid = document.getElementById('daNaive');
+    grid.style.opacity = 0;  
     
 }
     
