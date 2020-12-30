@@ -48,7 +48,7 @@
         <button onclick="searchUser()"  class="btn btn-primary btn-block btn-large" >Confirm</button> 
         <!-- Error Message -->
         <div id="login-error-msg-holder">
-          <p id="login-error-msg">Invalid username <span id="error-msg-second-line">or token</span></p>
+          <p id="login-error-msg">Invalid username <span id="error-msg-second-line">or token required</span></p>
         </div>
         <div id="login-sucess-msg-holder">
           <p id="login-sucess-msg">Sucessful Request <span id="sucess-msg-second-line"></span></p>
@@ -59,51 +59,82 @@
             <p id="daNaive">As mentioned in my report on measuring software engineering, there are many ways of measuring
               software engineering; both naive and more veteran approaches. The following includes a metric anaylsis and visualisation of both naive 
               and complex anaylsis to measuring software engineering. Here I've listed the approaches I've taken, with reference to my report:
-              <li id="li1">PieChart of Most Popular Languages (Naive)</li>
+              <li id="li1">Pie Chart of Most Popular Languages (Naive)</li>
               <li id="li2">Commits Per Repositiory (Naive)</li>
               <li id="li3">Cycle Time Per Repository (Apt)</li>
               <li id="li4">Scatter Plot of Commits Per Day (Apt)</li>
+
+              
             </p>
           </div>
         </div>
+        
       </div> 
         
       </div>
     </div>    
   </div>
   <!-- Graphs-->
-  <div class="row">
+  <div id = 'wholeThing' class="row">
     <!-- id = "daSidebar2" -->
     <div class="col-sm-1 sidenav" margin-left: 10></div>
     <div class="col-sm-1"></div>
     <div class="col-sm-8">
+        <hr></hr>
+        <h4 style='text-align: center;'>Pie Chart of Most Popular Languages (Naive)</h4>
+        <br></br> 
       <canvas id="lang"></canvas>
       <br></br>
+      <hr></hr>
+      <h4 style='text-align: center;'>Commits Per Repositiory (Naive)</h4>
       <select id="slct1" name="slct1" > <!-- onChange="listRepos(this.id)" -->
         <option value="">Loading Repos...</option>
         <option value="">Loading Repos...</option>
       </select>
       <button onclick="findThatRepo('','')"  class="btn btn-primary btn-block btn-small" >Confirm</button> 
+      <h2><h2>
+        <!-- "Scatter Plot of Commits Per Day (Apt)" -->
+        
       <canvas id="commitPerRepo"></canvas>
+     
       <br></br>
+
+
+
       <div class="row">
-        <div class="col-sm-8"><img id="" style='margin-left: auto; width: 100%;' src='images/leanTime.png'></div>
-        <div class="col-sm-4"><p>Unfortunately with the information Github's rest API provide's it's rather difficult to obtain an accurate lean time. For now
+        <hr></hr><br></br> 
+        <h4 style='text-align: center;'>Cycle Time Per Repository (Apt)</h4>
+        
+        <div class="col-sm-7"><img id="" style='margin-left: auto; width: 100%;' src='images/leanTime.png'></div>
+        <div class="col-sm-5"  style='font-size: medium;'><p>Unfortunately with the information Github's rest API provide's it's rather difficult to obtain an accurate lean time. For now
           here is the lean time of the total repositories available.
           I've asummed that each reposistory is a task and that the difference between the first and last commit
           is the time taken for completetion.
           <br></br> 
-          Note that in terms of industry standards this is no where near as accurate as it needs to be, but with what data has been given it provides an apt representation.</p></div>
-        <div class="col-sm-8"><img id="img" style='margin-left: auto; width: 100%;' src='images/sopi.PNG' ></div>
-        <div class="col-sm-4"><p id="sopiLean">Speed of Product Iteration = <t id="sopiHead"></t> days
+          Note that in terms of industry standards this is no where near as accurate as it needs to be, but with what data has been given it provides an apt representation.</p>
+        </div>
+        <div class="col-sm-7"><img id="img" style='margin-left: auto; width: 100%;' src='images/sopi.PNG' ></div>
+        <div class="col-sm-5" style='font-size: medium;'><div id="sopiLean">
+          Speed of Product Iteration = <t id="sopiHead" ></t> days
           <p></p> Average Cycle Time = <t id="act"></t> days 
           = <t id="num"></t> lean time total / <t id="dem"></t> total days
-          </p></div>
-        
+        </div></div>
       </div>
-
+      <hr></hr>
+      <h4 style='text-align: center;'>Scatter Plot of Commits Per Day (Apt)</h4><br></br> 
+      <div>
+        <h4 style='opacity: 1;'>Scatter Plot Key:</h2>
+        <li style='opacity: 1;'>1 = Sunday</il>
+        <li style='opacity: 1;'>2 = Monday</il>
+        <li style='opacity: 1;'>3 = Tuesday</il>
+        <li style='opacity: 1;'>4 = Wednesday</il>
+        <li style='opacity: 1;'>5 = Thursday</il>
+        <li style='opacity: 1;'>6 = Friday</il>
+        <li style='opacity: 1;'>7 = Saturday</il>
+      <div>
+      <canvas id="scatter"></canvas><br></br> 
       
-      <canvas id="commits"></canvas>
+
       
     </div>
   </div>

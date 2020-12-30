@@ -99,8 +99,6 @@ li {
 
 
 
-
-
 .login { 
 	/* position: absolute !important; */
   opacity: 1;
@@ -144,4 +142,8 @@ polyline{
 	stroke: black;
 	stroke-width: 2px;
 	fill: none;
+}
+
+#wholeThing {
+  opacity: 0;
 }
