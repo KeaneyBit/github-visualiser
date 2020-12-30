@@ -18,9 +18,9 @@
 
 
   <div class="container-fluid">
-  <div class="row">
+    <div class="row">
     <!-- Side Bar -->
-    <div class="col-sm-4 sidenav" id = "daSidebar" margin-left: 10>
+    <div class="col-sm-2 sidenav" id = "daSidebar" margin-left: 10>
       <img id="img" src='' class="img-fluid">
       <p id="name"></p>
       <p id="login"></p>
@@ -34,10 +34,10 @@
       <p id="private_repos"></p>
       <p id="total_repos"></p>
     </div>
-    
-    
+    <!-- Filler Room -->
+    <div class="col-sm-2"></div>
     <!-- Search Bar -->
-    <div class="col-sm-8">
+    <div class="col-sm-4">
     <div id= "daLogin" class="login" >
       <h1 id="login-header">Search</h1>
         <form id="login-form" method="post">  
@@ -50,37 +50,70 @@
         <div id="login-error-msg-holder">
           <p id="login-error-msg">Invalid username <span id="error-msg-second-line">or token</span></p>
         </div>
+        <div id="login-sucess-msg-holder">
+          <p id="login-sucess-msg">Sucessful Request <span id="sucess-msg-second-line"></span></p>
+        </div>
         <!-- Naive & Complex Approach Paragraph-->
         <div class="container-fluid">
           <div> 
-            <p id="daNaive">The following includes a metric anaylsis and visualisation of both naive and complex anaylsis to measuring software engineering.</p>
+            <p id="daNaive">As mentioned in my report on measuring software engineering, there are many ways of measuring
+              software engineering; both naive and more veteran approaches. The following includes a metric anaylsis and visualisation of both naive 
+              and complex anaylsis to measuring software engineering. Here I've listed the approaches I've taken, with reference to my report:
+              <li id="li1">PieChart of Most Popular Languages (Naive)</li>
+              <li id="li2">Commits Per Repositiory (Naive)</li>
+              <li id="li3">Cycle Time Per Repository (Apt)</li>
+              <li id="li4">Scatter Plot of Commits Per Day (Apt)</li>
+            </p>
           </div>
         </div>
+      </div> 
         
       </div>
+    </div>    
+  </div>
+  <!-- Graphs-->
+  <div class="row">
+    <!-- id = "daSidebar2" -->
+    <div class="col-sm-1 sidenav" margin-left: 10></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-8">
+      <canvas id="lang"></canvas>
+      <br></br>
+      <select id="slct1" name="slct1" > <!-- onChange="listRepos(this.id)" -->
+        <option value="">Loading Repos...</option>
+        <option value="">Loading Repos...</option>
+      </select>
+      <button onclick="findThatRepo('','')"  class="btn btn-primary btn-block btn-small" >Confirm</button> 
+      <canvas id="commitPerRepo"></canvas>
+      <br></br>
+      <div class="row">
+        <div class="col-sm-8"><img id="" style='margin-left: auto; width: 100%;' src='images/leanTime.png'></div>
+        <div class="col-sm-4"><p>Unfortunately with the information Github's rest API provide's it's rather difficult to obtain an accurate lean time. For now
+          here is the lean time of the total repositories available.
+          I've asummed that each reposistory is a task and that the difference between the first and last commit
+          is the time taken for completetion.
+          <br></br> 
+          Note that in terms of industry standards this is no where near as accurate as it needs to be, but with what data has been given it provides an apt representation.</p></div>
+        <div class="col-sm-8"><img id="img" style='margin-left: auto; width: 100%;' src='images/sopi.PNG' ></div>
+        <div class="col-sm-4"><p id="sopiLean">Speed of Product Iteration = <t id="sopiHead"></t> days
+          <p></p> Average Cycle Time = <t id="act"></t> days 
+          = <t id="num"></t> lean time total / <t id="dem"></t> total days
+          </p></div>
+        
+      </div>
+
       
+      <canvas id="commits"></canvas>
       
     </div>
-
-    
-    
-    
-        
-
   </div>
 
-    <!-- Graphs-->
-
-  </div>
-</div>
 
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>  
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src = app.js></script>
 
-    
-
-
-    <!--d3.js--><script src="https://d3js.org/d3.v6.min.js"></script>
-    <!--main script--><script src = app.js></script>
 </body>
 </html>
