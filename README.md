@@ -1,11 +1,11 @@
 # Github Social Graph
 Project for CSU3012 - Software Engineering
 
-Live Version: [https://keaneybit.github.io/github-visualiser/] (https://keaneybit.github.io/github-visualiser/)
+Live Version: https://keaneybit.github.io/github-visualiser/
+
 Video Demonstration [Here](https://youtu.be/k0nSKx651aY)
 
 ## Live Version
-+   
 +   May take a few seconds to load as heroku puts the app to "sleep" during periods of inactivity (i.e until it is visited by someone) to ease load on their servers.
 
 ## Instructions to Build and Run Locally
@@ -17,7 +17,7 @@ Video Demonstration [Here](https://youtu.be/k0nSKx651aY)
 +   Navigate to link from terminal or: [http://127.0.0.1:5500/index.html](http://127.0.0.1:5500/index.html)
 
 ## Demonstration Gif
-![](demo/demo (1).gif)
+![](demo/demo.gif)
 
 ## Features
 ### Account Details by API
@@ -55,7 +55,7 @@ Video Demonstration [Here](https://youtu.be/k0nSKx651aY)
 +   Calculates total cycle time based on first and last commits
 +   Useful images explaining concept of cycle time
 
-![](images/cycle.png)
+![alt text](images/cycle.png)
 
 
 ### Scatter Graph of Commits Timeline
