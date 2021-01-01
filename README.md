@@ -55,7 +55,7 @@ Video Demonstration [Here](https://youtu.be/k0nSKx651aY)
 +   Calculates total cycle time based on first and last commits
 +   Useful images explaining concept of cycle time
 
-![alt text](images/cycle.png)
+![alt text](images/cycle.PNG)
 
 
 ### Scatter Graph of Commits Timeline
