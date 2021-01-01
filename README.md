@@ -5,9 +5,6 @@ Live Version: https://keaneybit.github.io/github-visualiser/
 
 Video Demonstration [Here](https://youtu.be/k0nSKx651aY)
 
-## Live Version
-+   May take a few seconds to load as heroku puts the app to "sleep" during periods of inactivity (i.e until it is visited by someone) to ease load on their servers.
-
 ## Instructions to Build and Run Locally
 +   **Make sure you have some way of loading localhost**
 +   Clone or download the repo: `git clone https://github.com/KeaneyBit/github-visualiser.git`
